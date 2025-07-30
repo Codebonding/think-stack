@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="nav-container">
       <div className="nav-right">
         <Link to="/" className="nav-link">
-          <img src="/assets/logo.webp" alt="Logo" className="nav-logo" />
+          <img src="/assets/logo.png" alt="Logo" className="nav-logo" />
         </Link>
 
         <div className="hamburger" onClick={toggleMenu}>

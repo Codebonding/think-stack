@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-left">
-        <img src="/assets/logo.webp" alt="Logo" className="footer-logo" />
+        <img src="/assets/logo.png" alt="Logo" className="footer-logo" />
       </div>
       <div className="footer-right">
         <p className="footer-address">
