@@ -1,0 +1,210 @@
+/* Enhanced About Page Styles with White Text on Hover */
+.facility-container {
+  --primary-gradient: linear-gradient(135deg, #020064 0%, #3a3a9e 100%);
+  --accent-gradient: linear-gradient(135deg, #fb0c0c 0%, #ff5252 100%);
+  --text-dark: #1a1a2e;
+  --text-medium: #4a4a6a;
+  --text-light: #6c6c8a;
+  --bg-light: #f8f9fc;
+  --bg-card: #ffffff;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Core Strengths Bubbles - Enhanced Hover */
+.size-bubble {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 0.65rem 1.35rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.size-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.size-bubble:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.size-bubble:hover::before {
+  opacity: 1;
+}
+
+/* Feature Cards - Enhanced Hover with White Text */
+.feature-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: var(--transition);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.feature-card:hover {
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover .feature-text h4,
+.feature-card:hover .feature-text p {
+  color: white;
+}
+
+.feature-card:hover .feature-icon {
+  background: white;
+  color: #020064;
+}
+
+/* Process Steps - Enhanced Hover */
+.step-text {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid #020064;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.step-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.step-text:hover {
+  color: white;
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+}
+
+.step-text:hover::before {
+  opacity: 1;
+}
+
+.step-text:hover h4,
+.step-text:hover p {
+  color: white;
+}
+
+/* CTA Button - Enhanced */
+.cta-button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  z-index: 1;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.cta-button:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-button:hover::after {
+  opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .feature-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .step-text:hover {
+    transform: translateX(3px);
+  }
+}
+
+@media (max-width: 576px) {
+  .size-bubble:hover {
+    transform: translateY(-2px);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+}
