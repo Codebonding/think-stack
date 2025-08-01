@@ -130,7 +130,6 @@ const About = () => {
             </h3>
             <div className="process-steps-container">
               <div className="process-step">
-                <div className="step-number">1</div>
                 <div className="step-content">
                   <div className="step-line"></div>
                   <div className="step-text">
@@ -141,7 +140,6 @@ const About = () => {
               </div>
               
               <div className="process-step">
-                <div className="step-number">2</div>
                 <div className="step-content">
                   <div className="step-line"></div>
                   <div className="step-text">
@@ -152,7 +150,6 @@ const About = () => {
               </div>
               
               <div className="process-step">
-                <div className="step-number">3</div>
                 <div className="step-content">
                   <div className="step-line"></div>
                   <div className="step-text">
@@ -163,7 +160,6 @@ const About = () => {
               </div>
               
               <div className="process-step">
-                <div className="step-number">4</div>
                 <div className="step-content">
                   <div className="step-line"></div>
                   <div className="step-text">
