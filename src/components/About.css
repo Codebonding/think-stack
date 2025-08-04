@@ -208,3 +208,24 @@
     transform: translateY(-2px);
   }
 }
+
+/* Container Styles */
+.facility-container {
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Adjust padding for smaller screens */
+}
+
+/* Responsive container adjustments */
+@media (max-width: 768px) {
+  .facility-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .facility-container {
+    padding: 0 0.75rem;
+  }
+}

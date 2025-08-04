@@ -52,7 +52,6 @@ const About = () => {
           <div className="full-width-specs-container">
             <div className="specs-header">
               <h3 className="section-title">
-                <span className="section-icon">🏭</span>
                 Innovative In-House Drone Manufacturing
               </h3>
             </div>
@@ -76,7 +75,6 @@ const About = () => {
           {/* Composite Lab Section */}
           <div className="features-section">
             <h3 className="section-title">
-              <span className="section-icon">🔬</span>
               Composite Laboratory: Precision in Drone Manufacturing
             </h3>
             
@@ -125,7 +123,7 @@ const About = () => {
           {/* Process Steps */}
           <div className="process-steps-section">
             <h3 className="section-title">
-              <span className="section-icon">⚙️</span>
+              <span className="section-icon"></span>
               Our Manufacturing Process
             </h3>
             <div className="process-steps-container">
@@ -174,7 +172,7 @@ const About = () => {
           {/* CTA Section */}
           <div className="cta-section">
             <h3 className="section-title">
-              <span className="section-icon">🚀</span>
+              <span className="section-icon"></span>
               Ready to Experience Our Technology?
             </h3>
             <button className="cta-button" onClick={handleVisitWebsite}>
