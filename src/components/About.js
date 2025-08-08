@@ -12,6 +12,7 @@ const About = () => {
       <section className="about-hero-section">
         <div className="hero-overlay">
           <h1 className="hero-main-title">About Us</h1>
+          {/* <p className="hero-subtitle">Innovating UAV Technology for Modern Challenges</p> */}
         </div>
       </section>
 

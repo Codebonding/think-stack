@@ -5,7 +5,7 @@ body {
   background-repeat: no-repeat; 
   background-size: cover;     
   height: auto;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;

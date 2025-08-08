@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Facility.css";
+import Home from "./Home";
 
 const Facility = () => {
   const [activeTab, setActiveTab] = useState("grading");
@@ -1213,6 +1214,7 @@ const Facility = () => {
   );
 
   return (
+  <>
     <div className="pro-item-container">
       <div className="pro-item-card">
         <div className="machine-tabs">
@@ -1351,6 +1353,7 @@ const Facility = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
