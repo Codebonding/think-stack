@@ -18,7 +18,6 @@ const Home = () => {
         <p className="home-description">
          Think Xag Tek, is revolutionizing the UAV industry with Advanced agricultural, surveillance, and military drones. We also manufacture batteries, flight controllers, and UAV accessories. In-house Manufacturing production with strict quality control and testing for
 durability, performance, and compliance. Custom-built solutions for specialized industry needs. We have gained recognition for high-performance drone solutions in agriculture, defense, and logistics. Our commitment to innovation, reliability, and cost-effective UAV technology drives us forward. Proudly Made-in-USA, we deliver world-class UAV solutions with local expertise, ensuring superior quality and performance. As we grow, our focus remains on pushing UAV technology to new heights, providing advanced, indigenous solutions tailored for diverse industry needs.
-
         </p>
       </div>
       

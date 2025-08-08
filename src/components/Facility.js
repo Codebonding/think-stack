@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Facility.css";
-import Home from "./Home";
 
 const Facility = () => {
   const [activeTab, setActiveTab] = useState("grading");
+  
   const [sortConfig, setSortConfig] = useState({ key: "id", direction: "asc" });
+  const detailsRef = useRef(null);
 
-  const machineData = {
+    const machineData = {
     grading: {
       title: "Cell Grading/Capacity/Cycler Machine",
       subtitle: "Cylindrical Cell",
@@ -1184,13 +1185,7 @@ const Facility = () => {
   };
 
   const compatibleSizes = [
-    "18650",
-    "21700",
-    "26650",
-    "32700",
-    "32138",
-    "33140",
-    "34189",
+    "18650", "21700", "26650", "32700", "32138", "33140", "34189",
   ];
 
   const requestSort = (key) => {
@@ -1201,159 +1196,194 @@ const Facility = () => {
     setSortConfig({ key, direction });
   };
 
-  const sortedSpecifications = [...machineData[activeTab].specifications].sort(
-    (a, b) => {
-      if (a[sortConfig.key] < b[sortConfig.key]) {
-        return sortConfig.direction === "asc" ? -1 : 1;
-      }
-      if (a[sortConfig.key] > b[sortConfig.key]) {
-        return sortConfig.direction === "asc" ? 1 : -1;
-      }
-      return 0;
-    }
-  );
+  const handleMachineClick = (key) => {
+    setActiveTab(key);
+    setTimeout(() => {
+      detailsRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  const sortedSpecifications = activeTab && machineData[activeTab].specifications 
+    ? [...machineData[activeTab].specifications].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === "asc" ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === "asc" ? 1 : -1;
+        }
+        return 0;
+      })
+    : [];
+
+  // Split machine data into chunks of 3 for grid display
+  const machineChunks = [];
+  const machineKeys = Object.keys(machineData);
+  for (let i = 0; i < machineKeys.length; i += 3) {
+    machineChunks.push(machineKeys.slice(i, i + 3));
+  }
 
   return (
-  <>
-    <div className="pro-item-container">
-      <div className="pro-item-card">
-        <div className="machine-tabs">
-          {Object.keys(machineData).map((key) => (
-            <button
-              key={key}
-              className={`tab-button ${activeTab === key ? "active" : ""}`}
-              onClick={() => setActiveTab(key)}
-            >
-              {machineData[key].title.split("(")[0].trim()}
-            </button>
-          ))}
-        </div>
+    <div className="facility-container">
+      <div className="machine-grid-container">
+        <h1 className="facility-main-title">Our Production Facilities</h1>
+        <p className="facility-subtitle">Advanced machinery for battery manufacturing and testing</p>
+        
+        {machineChunks.map((chunk, rowIndex) => (
+          <div key={rowIndex} className="machine-grid-row">
+            {chunk.map((key) => (
+              <div 
+                key={key} 
+                className={`machine-card ${activeTab === key ? 'active' : ''}`}
+                onClick={() => handleMachineClick(key)}
+              >
+                <div className="machine-card-image">
+                  <img 
+                    src={machineData[key].image} 
+                    alt={machineData[key].title} 
+                  />
+                </div>
+                <h3 className="machine-card-title">
+                  {machineData[key].title.split("/")[0].trim()}
+                  {machineData[key].subtitle && (
+                    <span className="machine-card-subtitle">
+                      {machineData[key].subtitle}
+                    </span>
+                  )}
+                </h3>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
 
-        <div className="machine-content">
-          <h2 className="category-title">
-            <span>{machineData[activeTab].title}</span>
-            {machineData[activeTab].subtitle && (
-              <>
-                <span className="blue-arrow">→</span>
-                <span>{machineData[activeTab].subtitle}</span>
-              </>
-            )}
-          </h2>
+      {activeTab && machineData[activeTab] && (
+        <div ref={detailsRef} className="machine-details-container">
+          <div className="machine-details-content">
+            <h2 className="machine-details-title">
+              {machineData[activeTab].mainTitle}
+              <span className="machine-details-subtitle">
+                {machineData[activeTab].title}
+                {machineData[activeTab].subtitle && (
+                  <>
+                    <span className="blue-arrow">→</span>
+                    <span>{machineData[activeTab].subtitle}</span>
+                  </>
+                )}
+              </span>
+            </h2>
 
-          <h1 className="pro-item-title">{machineData[activeTab].mainTitle}</h1>
+            <div className="image-description-container">
+              <div className="pro-item-image">
+                <img
+                  src={machineData[activeTab].image}
+                  alt={machineData[activeTab].title}
+                  className="machine-image"
+                />
+              </div>
 
-          <div className="image-description-container">
-            <div className="pro-item-image">
-              <img
-                src={machineData[activeTab].image}
-                alt={machineData[activeTab].title}
-                className="machine-image"
-              />
+              <div className="text-content">
+                <p className="pro-item-description">
+                  {machineData[activeTab].description}
+                </p>
+
+                {activeTab === "grading" && (
+                  <div className="compatible-sizes">
+                    <h3>Compatible Cell Sizes</h3>
+                    <div className="size-bubbles">
+                      {compatibleSizes.map((size) => (
+                        <span key={size} className="size-bubble">
+                          {size}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
-            <div className="text-content">
-              <p className="pro-item-description">
-                {machineData[activeTab].description}
-              </p>
-
-              {activeTab === "grading" && (
-                <div className="compatible-sizes">
-                  <h3>Compatible Cell Sizes</h3>
-                  <div className="size-bubbles">
-                    {compatibleSizes.map((size) => (
-                      <span key={size} className="size-bubble">
-                        {size}
-                      </span>
-                    ))}
+            <div className="specs-features-container">
+              {machineData[activeTab].specifications?.length > 0 && (
+                <div className="specifications-section">
+                  <h3 className="section-title">Specifications</h3>
+                  <div className="specs-table-container">
+                    <table className="specs-table">
+                      <thead>
+                        <tr>
+                          <th
+                            className={`sortable ${
+                              sortConfig.key === "id" ? sortConfig.direction : ""
+                            }`}
+                            onClick={() => requestSort("id")}
+                          >
+                            ID
+                            <span className="sort-icon">
+                              {sortConfig.key === "id"
+                                ? sortConfig.direction === "asc"
+                                  ? "↑"
+                                  : "↓"
+                                : "↕"}
+                            </span>
+                          </th>
+                          <th
+                            className={`sortable ${
+                              sortConfig.key === "name"
+                                ? sortConfig.direction
+                                : ""
+                            }`}
+                            onClick={() => requestSort("name")}
+                          >
+                            Specification
+                            <span className="sort-icon">
+                              {sortConfig.key === "name"
+                                ? sortConfig.direction === "asc"
+                                  ? "↑"
+                                  : "↓"
+                                : "↕"}
+                            </span>
+                          </th>
+                          <th>Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sortedSpecifications.map((spec) => (
+                          <tr key={spec.id}>
+                            <td className="spec-id" data-label="ID">
+                              {spec.id}
+                            </td>
+                            <td className="spec-name" data-label="Specification">
+                              {spec.name}
+                            </td>
+                            <td className="spec-details" data-label="Details">
+                              {spec.details}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               )}
-            </div>
-          </div>
 
-          <div className="specs-features-container">
-            {machineData[activeTab].specifications?.length > 0 && (
-              <div className="specifications-section">
-                <h3 className="section-title">Specifications</h3>
-                <div className="specs-table-container">
-                  <table className="specs-table">
-                    <thead>
-                      <tr>
-                        <th
-                          className={`sortable ${
-                            sortConfig.key === "id" ? sortConfig.direction : ""
-                          }`}
-                          onClick={() => requestSort("id")}
-                        >
-                          ID
-                          <span className="sort-icon">
-                            {sortConfig.key === "id"
-                              ? sortConfig.direction === "asc"
-                                ? "↑"
-                                : "↓"
-                              : "↕"}
-                          </span>
-                        </th>
-                        <th
-                          className={`sortable ${
-                            sortConfig.key === "name"
-                              ? sortConfig.direction
-                              : ""
-                          }`}
-                          onClick={() => requestSort("name")}
-                        >
-                          Specification
-                          <span className="sort-icon">
-                            {sortConfig.key === "name"
-                              ? sortConfig.direction === "asc"
-                                ? "↑"
-                                : "↓"
-                              : "↕"}
-                          </span>
-                        </th>
-                        <th>Details</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {sortedSpecifications.map((spec) => (
-                        <tr key={spec.id}>
-                          <td className="spec-id" data-label="ID">
-                            {spec.id}
-                          </td>
-                          <td className="spec-name" data-label="Specification">
-                            {spec.name}
-                          </td>
-                          <td className="spec-details" data-label="Details">
-                            {spec.details}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-
-            <div className="features-section">
-              <h3 className="section-title">Key Features</h3>
-              <div className="features-grid">
-                {machineData[activeTab].features.map((feature, index) => (
-                  <div key={index} className="feature-card">
-                    <div className="feature-icon">
-                      <svg viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-                      </svg>
+              <div className="features-section">
+                <h3 className="section-title">Key Features</h3>
+                <div className="features-grid">
+                  {machineData[activeTab].features.map((feature, index) => (
+                    <div key={index} className="feature-card">
+                      <div className="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                        </svg>
+                      </div>
+                      <div className="feature-text">{feature}</div>
                     </div>
-                    <div className="feature-text">{feature}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
-    </>
   );
 };
 
