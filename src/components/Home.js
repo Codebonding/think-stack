@@ -16,9 +16,7 @@ const Home = () => {
       <div className="home-content">
         <img src='/assets/logo.png' className='think-logo' alt="Think Logo" />
         <p className="home-description">
-         Think Xag Tek is revolutionizing the UAV industry with advanced drones for agriculture, surveillance, and defense. We design and manufacture batteries, flight controllers, and UAV accessories in-house, ensuring strict quality control, durability, and performance.
-
-Our custom-built solutions cater to specialized industry needs, earning us recognition for high-performance UAVs in agriculture, defense, and logistics. Proudly Made in the USA, we combine innovation, reliability, and cost-effectiveness to deliver world-class UAV technology. As we grow, we remain committed to pushing the boundaries of drone innovation with tailored, indigenous solutions.
+         Think Xag Tek is transforming the UAV industry with advanced drones for agriculture, surveillance, and defense. We design and manufacture batteries, flight controllers, and accessories in-house for superior quality, durability, and performance. Our custom solutions meet specialized industry needs, earning recognition in agriculture, defense, and logistics. Proudly Made in the USA, we deliver innovative, reliable, and cost-effective UAV technology while pushing the boundaries of drone innovation.
         </p>
       </div>
       
