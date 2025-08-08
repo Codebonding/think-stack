@@ -22,7 +22,7 @@
   position: absolute;
   top: 95%;
   left: 0%;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(8px);
   transform: translate(0%,-95%);
 }
 
