@@ -3,7 +3,7 @@ import "./Facility.css";
 
 const Facility = () => {
   const [activeTab, setActiveTab] = useState("grading");
-  
+  const [hoveredCard, setHoveredCard] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: "id", direction: "asc" });
   const detailsRef = useRef(null);
 
@@ -1225,31 +1225,50 @@ const Facility = () => {
   return (
     <div className="facility-container">
       <div className="machine-grid-container">
-        <h1 className="facility-main-title">Our Production Facilities</h1>
-        <p className="facility-subtitle">Advanced machinery for battery manufacturing and testing</p>
+        <div className="facility-header">
+          <h1 className="facility-main-title">Our Production Facilities</h1>
+          <p className="facility-subtitle">Advanced machinery for battery manufacturing and testing</p>
+          <div className="header-decoration">
+            <div className="decoration-line"></div>
+            <div className="decoration-dot"></div>
+            <div className="decoration-line"></div>
+          </div>
+        </div>
         
         {machineChunks.map((chunk, rowIndex) => (
           <div key={rowIndex} className="machine-grid-row">
             {chunk.map((key) => (
               <div 
-                key={key} 
-                className={`machine-card ${activeTab === key ? 'active' : ''}`}
+                key={key}
+                className={`machine-card ${activeTab === key ? 'active' : ''} ${hoveredCard === key ? 'hovered' : ''}`}
                 onClick={() => handleMachineClick(key)}
+                onMouseEnter={() => setHoveredCard(key)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="machine-card-image">
-                  <img 
-                    src={machineData[key].image} 
-                    alt={machineData[key].title} 
-                  />
+                <div className="machine-card-image-container">
+                  <div className="machine-card-image">
+                    <img 
+                      src={machineData[key].image} 
+                      alt={machineData[key].title} 
+                    />
+                  </div>
+                  <div className="image-overlay"></div>
                 </div>
-                <h3 className="machine-card-title">
-                  {machineData[key].title.split("/")[0].trim()}
-                  {machineData[key].subtitle && (
-                    <span className="machine-card-subtitle">
-                      {machineData[key].subtitle}
-                    </span>
-                  )}
-                </h3>
+                <div className="machine-card-content">
+                  <h3 className="machine-card-title">
+                    <span>{machineData[key].title.split("/")[0].trim()}</span>
+                    {machineData[key].subtitle && (
+                      <span className="machine-card-subtitle">
+                        {machineData[key].subtitle}
+                      </span>
+                    )}
+                  </h3>
+                  <div className="machine-card-arrow">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -1272,13 +1291,15 @@ const Facility = () => {
               </span>
             </h2>
 
-            <div className="image-description-container">
+           <div className="image-description-container">
               <div className="pro-item-image">
-                <img
-                  src={machineData[activeTab].image}
-                  alt={machineData[activeTab].title}
-                  className="machine-image"
-                />
+                <div className="image-frame">
+                  <img
+                    src={machineData[activeTab].image}
+                    alt={machineData[activeTab].title}
+                    className="machine-image"
+                  />
+                </div>
               </div>
 
               <div className="text-content">
@@ -1293,6 +1314,7 @@ const Facility = () => {
                       {compatibleSizes.map((size) => (
                         <span key={size} className="size-bubble">
                           {size}
+                          <span className="bubble-effect"></span>
                         </span>
                       ))}
                     </div>
@@ -1301,10 +1323,14 @@ const Facility = () => {
               </div>
             </div>
 
+
             <div className="specs-features-container">
               {machineData[activeTab].specifications?.length > 0 && (
                 <div className="specifications-section">
+                  <div className="section-header">
                   <h3 className="section-title">Specifications</h3>
+                  <div className="section-decoration"></div>
+                </div>
                   <div className="specs-table-container">
                     <table className="specs-table">
                       <thead>
@@ -1364,15 +1390,20 @@ const Facility = () => {
                 </div>
               )}
 
-              <div className="features-section">
-                <h3 className="section-title">Key Features</h3>
+                   <div className="features-section">
+                <div className="section-header">
+                  <h3 className="section-title">Key Features</h3>
+                  <div className="section-decoration"></div>
+                </div>
                 <div className="features-grid">
                   {machineData[activeTab].features.map((feature, index) => (
                     <div key={index} className="feature-card">
-                      <div className="feature-icon">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-                        </svg>
+                      <div className="feature-icon-container">
+                        <div className="feature-icon">
+                          <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                          </svg>
+                        </div>
                       </div>
                       <div className="feature-text">{feature}</div>
                     </div>
