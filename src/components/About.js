@@ -11,8 +11,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero-section">
         <div className="hero-overlay">
-          <h1 className="hero-main-title">About Think Xag Tek</h1>
-          <p className="hero-subtitle">Innovating UAV Technology for Modern Challenges</p>
+          <h1 className="hero-main-title">About Us</h1>
         </div>
       </section>
 
@@ -103,9 +102,6 @@ const About = () => {
             <div className="title-divider"></div>
           </div>
           <div className="content-grid reverse">
-            {/* <div className="image-content">
-              <div className="manufacturing-image"></div>
-            </div> */}
             <div className="text-content">
               <p className="about-description">
                 At Think Xag Tek, we take pride in preparing our own molds, enabling us to develop 
