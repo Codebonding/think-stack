@@ -197,7 +197,7 @@ const About = () => {
            <section className="about-section cta-section">
         <div className="cta-card">
          
-          <h2 className="cta-title">Ready to Experience Our Production?</h2>
+          <h2 className="cta-title">Ready to Experience Our Products</h2>
           <p className="cta-text">Discover how our UAV solutions can transform your operations.</p>
            <div className="company-logo">
             <img 
