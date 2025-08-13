@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import logoImage from '../assets/logo.webp';
 
 const About = () => {
   const handleVisitWebsite = () => {
@@ -12,7 +13,6 @@ const About = () => {
       <section className="about-hero-section">
         <div className="hero-overlay">
           <h1 className="hero-main-title">About Us</h1>
-          {/* <p className="hero-subtitle">Innovating UAV Technology for Modern Challenges</p> */}
         </div>
       </section>
 
@@ -20,12 +20,12 @@ const About = () => {
       <main className="about-main-content">
         {/* Company Overview */}
         <section className="about-section about-company">
-          <div className="section-header">
+          <div className="section-header center-header">
             <h2 className="section-title">Revolutionizing UAV Technology</h2>
-            <div className="title-divider"></div>
+            <div className="title-divider center-divider"></div>
           </div>
-          <div className="content-grid">
-            <div className="text-content">
+          <div className="content-grid centered-content">
+            <div className="text-content centered-text">
               <p className="about-description">
                 Think Xag Tek is revolutionizing the UAV industry with advanced agricultural, 
                 surveillance, and military drones. We also manufacture batteries, flight controllers, 
@@ -38,7 +38,7 @@ const About = () => {
                 Our commitment to innovation, reliability, and cost-effective UAV technology drives us forward.
               </p>
             </div>
-            <div className="image-content">
+            <div className="image-content centered-image">
               <div className="floating-drone-image"></div>
             </div>
           </div>
@@ -74,7 +74,7 @@ const About = () => {
             </div>
             <div className="strength-card">
               <div className="strength-icon">
-                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.5,11H19V7C19,5.89 18.1,5 17,5H13V3.5A2.5,2.5 0 0,0 10.5,1A2.5,2.5 0 0,0 8,3.5V5H4A2,2 0 0,0 2,7V10.8H3.5C5,10.8 6.2,12 6.2,13.5C6.2,15 5,16.2 3.5,16.2H2V20A2,2 0 0,0 4,22H7.8V20.5C7.8,19 9,17.8 10.5,17.8C12,17.8 13.2,19 13.2,20.5V22H17A2,2 0 0,0 19,20V16H20.5A2.5,2.5 0 0,0 23,13.5A2.5,2.5 0 0,0 20.5,11Z"/></svg>
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.5,11H19V7C19,5.89 18.1,5 17,5H13V3.5A2.5,2.5 0 0,0 10.5,1A2.5,2.5 0 0,0 8,3.5V5H4A2,2 0 0,0 2,7V10.8H3.5C5,10.8 6.2,12 6.2,13.5C6.2,15 5,16.2 3.5,16.2H2V20A2,2 0 0,0 4,22H7.8V20.5C7.8,19 9,17.8 10.5,17.8C12,17.8 13.2,19 13.2,20.5V22H17A2,2 0 0,0 19,20V16H20.5A2.5,2.5 0,0,0 23,13.5A2.5,2.5 0,0,0 20.5,11Z"/></svg>
               </div>
               <h3>Custom Solutions</h3>
               <p>Tailored to your specific operational needs</p>
@@ -98,12 +98,12 @@ const About = () => {
 
         {/* Manufacturing Section */}
         <section className="about-section manufacturing-section">
-          <div className="section-header">
+          <div className="section-header center-header">
             <h2 className="section-title">Innovative In-House Drone Manufacturing</h2>
-            <div className="title-divider"></div>
+            <div className="title-divider center-divider"></div>
           </div>
-          <div className="content-grid reverse">
-            <div className="text-content">
+          <div className="content-grid reverse centered-content">
+            <div className="text-content centered-text">
               <p className="about-description">
                 At Think Xag Tek, we take pride in preparing our own molds, enabling us to develop 
                 high-quality products tailored to precision. Utilizing advanced materials like carbon 
@@ -194,16 +194,24 @@ const About = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="about-section cta-section">
-          <div className="cta-card">
-            <h2 className="cta-title">Ready to Experience Our Technology?</h2>
-            <p className="cta-text">Discover how our UAV solutions can transform your operations.</p>
-            <button className="cta-button" onClick={handleVisitWebsite}>
-              <span>Visit Our Website</span>
-              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-            </button>
+           <section className="about-section cta-section">
+        <div className="cta-card">
+         
+          <h2 className="cta-title">Ready to Experience Our Production?</h2>
+          <p className="cta-text">Discover how our UAV solutions can transform your operations.</p>
+           <div className="company-logo">
+            <img 
+              src={logoImage} 
+              alt="Think Xag Tek Logo" 
+              className="logo-image"
+            />
           </div>
-        </section>
+          <button className="cta-button" onClick={handleVisitWebsite}>
+            <span>Visit Our Website</span>
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+          </button>
+        </div>
+      </section>
       </main>
     </div>
   );

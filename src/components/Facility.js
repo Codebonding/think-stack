@@ -1257,11 +1257,6 @@ const Facility = () => {
                 <div className="machine-card-content">
                   <h3 className="machine-card-title">
                     <span>{machineData[key].title.split("/")[0].trim()}</span>
-                    {machineData[key].subtitle && (
-                      <span className="machine-card-subtitle">
-                        {machineData[key].subtitle}
-                      </span>
-                    )}
                   </h3>
                   <div className="machine-card-arrow">
                     <svg viewBox="0 0 24 24">
@@ -1278,7 +1273,7 @@ const Facility = () => {
       {activeTab && machineData[activeTab] && (
         <div ref={detailsRef} className="machine-details-container">
           <div className="machine-details-content">
-            <h2 className="machine-details-title">
+            <h2 className="machine-details-title" >
               {machineData[activeTab].mainTitle}
               <span className="machine-details-subtitle">
                 {machineData[activeTab].title}

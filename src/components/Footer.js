@@ -12,7 +12,7 @@ const Footer = () => {
       </div>
       <div className="footer-right">
         <p className="footer-address">
-        <SiGooglemaps className='footer-icon'/>6000 Live Oak Parkway, <br/>Suite 108 B
+        <SiGooglemaps className='footer-icon'/>6000 Live Oak Parkway, <br/>Suite 115
         Norcross,<br/> Georgia USA 30093
         </p>
         

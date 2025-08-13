@@ -252,6 +252,8 @@
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
+  text-align: right;
+  width: 100%;
 }
 
 .title-decoration {
@@ -283,12 +285,15 @@
   transform: translateX(5px);
 }
 
-/* Enhanced Image & Description */
 .image-description-container {
   display: flex;
+  justify-content: center;
   gap: 3rem;
   align-items: flex-start;
   margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pro-item-image {
@@ -435,8 +440,10 @@
 }
 
 .section-header {
-  margin-bottom: 2rem;
-  position: relative;
+   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-decoration {
@@ -473,6 +480,7 @@
   min-width: 600px;
   border-collapse: collapse;
   font-size: 0.95rem;
+  table-layout: fixed;
 }
 
 .specs-table th {
@@ -650,17 +658,9 @@
   min-width: 600px;
 }
 
-/* Table Header */
-.specs-table th {
-  background: #EDEDED;
-  color: #020064;
-  font-weight: 600;
-  padding: 1.2rem 1.5rem;
-  text-align: left;
-  position: sticky;
-  top: 0;
-  transition: all 0.2s ease;
-  border-bottom: 2px solid rgba(2, 0, 100, 0.1);
+.specs-table th, 
+.specs-table td {
+  padding: 0.8rem 1rem; /* Reduce padding if needed */
 }
 
 .specs-table th.sortable {
@@ -685,6 +685,86 @@
 
 .specs-table th.sortable:hover .sort-icon {
   transform: translateY(-50%) scale(1.2);
+}
+
+.specs-table {
+  width: 100%;
+  table-layout: fixed; /* Add this to control column widths */
+}
+
+.specs-table th, 
+.specs-table td {
+  padding: 0.8rem 1rem; /* Reduce padding if needed */
+}
+
+.spec-id {
+  width: 60px; /* Adjust as needed */
+}
+
+/* Center section headers */
+.specifications-section, 
+.features-section {
+  width: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #020064;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-decoration {
+  height: 2px;
+  background: linear-gradient(90deg, #020064, #fb0c0c);
+  width: 80px;
+  margin-top: 0.5rem;
+}
+
+/* Table adjustments */
+.specs-table-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1000px; /* Or your preferred max width */
+}
+
+.specs-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.specs-table th {
+  padding: 0.8rem 1rem;
+}
+
+.specs-table td {
+  padding: 0.6rem 1rem;
+  word-break: break-word;
+}
+
+/* Features grid centering */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px; /* Or your preferred max width */
+  margin: 0 auto;
+}
+
+.spec-name {
+  width: 30%; /* Adjust percentage as needed */
+}
+
+.spec-details {
+  width: auto; /* Takes remaining space */
 }
 
 /* Table Body */
