@@ -572,9 +572,9 @@
 @media (min-width: 1200px) {
 .machine-details-title {
   text-align: right;
-  text-indent: -150px; /* Pulls text left by 150px from right edge */
-  margin-right: 150px; /* Reserves space */
-  width: calc(100% - 150px); /* Prevents overflow */
+  text-indent: -150px;
+  margin-right: 150px; 
+  width: calc(100% - 150px); 
 }
 }
 
