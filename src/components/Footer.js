@@ -18,7 +18,7 @@ const Footer = () => {
         
         <p className="footer-email">
         <li>
-             <FaPhone className='footer-icon'/> +1 (770) 284 5779
+             <FaPhone className='footer-icon'/>  +1 678-300-2276
             </li>
         <li>
 

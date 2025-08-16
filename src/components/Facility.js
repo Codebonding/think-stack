@@ -1275,16 +1275,17 @@ const Facility = () => {
           <div className="machine-details-content">
             <h2 className="machine-details-title" >
               {machineData[activeTab].mainTitle}
+            
+            </h2>
               <span className="machine-details-subtitle">
                 {machineData[activeTab].title}
                 {machineData[activeTab].subtitle && (
                   <>
-                    <span className="blue-arrow">→</span>
+                    <span className="blue-arrow">:</span>
                     <span>{machineData[activeTab].subtitle}</span>
                   </>
                 )}
               </span>
-            </h2>
 
            <div className="image-description-container">
               <div className="pro-item-image">
@@ -1337,30 +1338,11 @@ const Facility = () => {
                             onClick={() => requestSort("id")}
                           >
                             ID
-                            <span className="sort-icon">
-                              {sortConfig.key === "id"
-                                ? sortConfig.direction === "asc"
-                                  ? "↑"
-                                  : "↓"
-                                : "↕"}
-                            </span>
                           </th>
                           <th
-                            className={`sortable ${
-                              sortConfig.key === "name"
-                                ? sortConfig.direction
-                                : ""
-                            }`}
-                            onClick={() => requestSort("name")}
+                            className="sortable" 
                           >
                             Specification
-                            <span className="sort-icon">
-                              {sortConfig.key === "name"
-                                ? sortConfig.direction === "asc"
-                                  ? "↑"
-                                  : "↓"
-                                : "↕"}
-                            </span>
                           </th>
                           <th>Details</th>
                         </tr>

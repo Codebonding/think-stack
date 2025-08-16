@@ -24,9 +24,9 @@
 }
 
 .about-hero-section {
-  height: 60vh;
+  height: 100vh;
   min-height: 500px;
-  background-image: url("../../public/assets/About_bg.jpeg");
+  background-image: url("../../public/assets/aboutUs.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -53,7 +53,7 @@
 .hero-main-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
-  color: var(--light);
+  color: #020062;
   margin-bottom: 1rem;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

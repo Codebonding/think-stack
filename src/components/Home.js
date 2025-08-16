@@ -8,10 +8,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <video autoPlay loop muted playsInline className="bg-video">
-        <source src="/assets/bg.webm" type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
+       <img src="/assets/Facility.png" alt="Background" className="bg-image" />
 
       <div className="home-content">
         <img src='/assets/logo.png' className='think-logo' alt="Think Logo" />
