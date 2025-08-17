@@ -571,12 +571,13 @@
   color: #020064;
 }
 
+
 @media (min-width: 1040px) {
 .machine-details-title {
   font-size: 2.2rem;
   color: #020064;
   margin-bottom: 0.5rem;
-  margin-left: 105px;
+  margin-left: 225px;
   width: 100%;
 }
 .machine-details-subtitle {
@@ -589,23 +590,38 @@
 
 }
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (min-width: 993px) {
   .machine-card-image-container {
     height: 200px;
   }
+  .machine-details-title {
+  font-size: 2.2rem;
+  color: #020064;
+  margin-bottom: 0.5rem;
+  margin-left: 300px;
+  width: 100%;
+}
+}
+
+/* Responsive Design */
+@media (min-width: 1400px) {
+  .machine-card-image-container {
+    height: 200px;
+  }
+  .machine-details-title {
+  font-size: 2.2rem;
+  color: #020064;
+  margin-bottom: 0.5rem;
+  margin-left: 300px;
+  width: 100%;
+}
 }
 
 @media (max-width: 992px) {
   .machine-grid-row {
     flex-wrap: wrap;
   }
-
-  .machine-details-title {
-  font-size: 2.2rem;
-  color: #020064;
-  margin-bottom: 0.5rem;
-  margin-left: 1500px;
-}
+  
   
   .machine-card {
     min-width: calc(50% - 1rem);
@@ -639,16 +655,21 @@
 }
 
 @media (max-width: 576px) {
+
+  .machine-details-title {
+  font-size: 2.2rem;
+  color: #020064;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
   .facility-container {
     padding: 1rem;
   }
   
   .facility-main-title {
     font-size: 1.8rem;
-  }
-  
-  .machine-details-title {
-    font-size: 1.6rem;
   }
 }
 
