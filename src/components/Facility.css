@@ -270,7 +270,7 @@
   display: block;
   font-size: 1.2rem;
   color: #555;
-  text-align: right; /* Align to right */
+  text-align: center; /* Align to right */
   padding-right: 20px; /* Match title padding */
   margin-bottom: 20px;
 }
@@ -580,13 +580,6 @@
   margin-left: 225px;
   width: 100%;
 }
-.machine-details-subtitle {
-  /* display: block; */
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 1rem;
-  margin-left: 700px;   /* let CSS auto-push */
-}
 
 }
 /* Responsive Design */
@@ -601,6 +594,13 @@
   margin-left: 300px;
   width: 100%;
 }
+.machine-details-subtitle {
+  /* display: block; */
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+  margin-left:550px;   /* let CSS auto-push */
+}
 }
 
 /* Responsive Design */
@@ -614,6 +614,13 @@
   margin-bottom: 0.5rem;
   margin-left: 300px;
   width: 100%;
+}
+.machine-details-subtitle {
+  /* display: block; */
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+  margin-left:650px;   /* let CSS auto-push */
 }
 }
 
