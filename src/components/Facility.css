@@ -247,13 +247,6 @@
   margin-bottom: 3rem;
 }
 
-.machine-details-title {
-  font-size: 2.2rem;
-  color: #020064;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  width: 100%;
-}
 
 .title-decoration {
   position: absolute;
@@ -265,16 +258,6 @@
   background: linear-gradient(90deg, #020064, #fb0c0c);
   border-radius: 3px;
 }
-
-.machine-details-subtitle {
-  display: block;
-  font-size: 1.2rem;
-  color: #555;
-  text-align: center; /* Align to right */
-  padding-right: 20px; /* Match title padding */
-  margin-bottom: 20px;
-}
-
 
 .blue-arrow {
   color: #020064;
@@ -573,13 +556,7 @@
 
 
 @media (min-width: 1040px) {
-.machine-details-title {
-  font-size: 2.2rem;
-  color: #020064;
-  margin-bottom: 0.5rem;
-  margin-left: 225px;
-  width: 100%;
-}
+
 
 }
 /* Responsive Design */
@@ -587,20 +564,23 @@
   .machine-card-image-container {
     height: 200px;
   }
-  .machine-details-title {
+
+  .machine-details-title,
+.machine-details-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: left;       /* align left */
+  width: fit-content;     /* shrink to content */
+  margin-left: 50%;       /* push block to center */
+  transform: translateX(-0%); /* keep start at middle */
+}
+
+.machine-details-title {
   font-size: 2.2rem;
   color: #020064;
   margin-bottom: 0.5rem;
-  margin-left: 300px;
-  width: 100%;
 }
-.machine-details-subtitle {
-  /* display: block; */
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 1rem;
-  margin-left:550px;   /* let CSS auto-push */
-}
+
 }
 
 /* Responsive Design */
@@ -608,20 +588,7 @@
   .machine-card-image-container {
     height: 200px;
   }
-  .machine-details-title {
-  font-size: 2.2rem;
-  color: #020064;
-  margin-bottom: 0.5rem;
-  margin-left: 300px;
-  width: 100%;
-}
-.machine-details-subtitle {
-  /* display: block; */
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 1rem;
-  margin-left:650px;   /* let CSS auto-push */
-}
+
 }
 
 @media (max-width: 992px) {
@@ -662,14 +629,6 @@
 }
 
 @media (max-width: 576px) {
-
-  .machine-details-title {
-  font-size: 2.2rem;
-  color: #020064;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  width: 100%;
-}
 
   .facility-container {
     padding: 1rem;
@@ -951,6 +910,27 @@
   .spec-id::after {
     display: none;
   }
+
+  
+.machine-details-title {
+  font-size: 2.2rem;
+  color: #020064;
+  margin-bottom: 0.5rem;
+  text-align: left;      /* text starts from left */
+  width: fit-content;    /* shrink block to content */
+  margin: 0 auto;        /* center the block */
+}
+
+.machine-details-subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #555;
+  text-align: left;      /* text starts from left */
+  width: fit-content;    /* shrink block to content */
+  margin: 0 auto 20px;   /* center block + keep spacing */
+}
+
+
 }
 
 /* Animation for sorted columns */
