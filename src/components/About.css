@@ -26,7 +26,7 @@
 .about-hero-section {
   height: 100vh;
   min-height: 500px;
-  background-image: url("../../public/assets/aboutUs.jpg");
+  background-image: url("../../public/assets/About_bg.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -53,7 +53,7 @@
 .hero-main-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
-  color: #020062;
+  color: white;
   margin-bottom: 1rem;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -146,7 +146,7 @@
 }
 
 .floating-drone-image {
-  background-image: url('https://images.unsplash.com/photo-1579829366248-204fe8413f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');
+   background-image: url("../../public/assets/aboutUs.jpg");
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -233,10 +233,9 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary);
+.feature-card:hover .feature-icon {
+  background: var(--gradient);
+  color: var(--light);
 }
 
 .feature-icon {
@@ -250,11 +249,6 @@
   justify-content: center;
   color: var(--primary);
   transition: var(--transition);
-}
-
-.feature-card:hover .feature-icon {
-  background: var(--gradient);
-  color: var(--light);
 }
 
 .feature-icon svg {
